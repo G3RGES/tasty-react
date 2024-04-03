@@ -4,7 +4,13 @@ import React from "react";
 import Navbar from "./Navbar";
 
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div className="home-container">
+      <Navbar />
+
+      <div className="home-banner-container">{/* to be continued */}</div>
+    </div>
+  );
 };
 
 export default Home;
