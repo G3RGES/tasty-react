@@ -23,7 +23,7 @@ import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
-  const menuItems = [
+  const menuOptions = [
     {
       text: "Home",
       icon: <HomeIcon />,
@@ -46,7 +46,49 @@ const Navbar = () => {
     },
   ];
 
-  return <div>Navbar</div>;
+  return (
+    <nav>
+      <div className="nav-logo-container">
+        <img src={Logo} alt="website_logo" />
+      </div>
+
+      <div className="navbar-links-container">
+        <a href="/#home">Home</a>
+        <a href="/#about">About</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/#contacts">Contact</a>
+        <a href="/#cart">
+          <BsCart2 className="navbar-cart-icon" />
+        </a>
+        <button className="primary-button">Book Now</button>
+      </div>
+
+      <div className="navbar-menu-container">
+        <HiOutlineBars3 onClick={() => setOpenMenu(true)} />
+      </div>
+
+      <Drawer open={openMenu} onClose={() => setOpenMenu(false)} anchor="right">
+        <Box
+          sx={{ width: 250 }}
+          role="presentation"
+          onClick={() => setOpenMenu(false)}
+          onKeyDown={() => setOpenMenu(false)}
+        >
+          <List>
+            {menuOptions.map((item, idx) => (
+              <ListItem key={idx} disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText primary={item.text} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+          <Divider />
+        </Box>
+      </Drawer>
+    </nav>
+  );
 };
 
 export default Navbar;
