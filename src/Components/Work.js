@@ -26,7 +26,28 @@ const Work = () => {
 
   return (
     <div className="work-section-wrapper">
-      <div className=""></div>
+      <div className="work-section-top">
+        <p className="primary-subheading">WORK</p>
+        <h1 className="primary-heading">How it works</h1>
+        <p className="primary-text">
+          we understand the importance of good service. Our friendly staff is
+          here to ensure you have a pleasant dining experience from start to
+          finish.
+        </p>
+      </div>
+
+      <div className="work-section-bottom">
+        {workInfoData.map((data, idx) => (
+          <div className="work-section-info" key={idx}>
+            <div className="info-boxes-img-container">
+              <img src={data.image} alt="info_img" />
+            </div>
+
+            <h2>{data.title}</h2>
+            <p>{data.text}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
