@@ -37,14 +37,14 @@ const Work = () => {
       </div>
 
       <div className="work-section-bottom">
-        {workInfoData.map((data, idx) => (
+        {workInfoData.map(({ image, title, text }, idx) => (
           <div className="work-section-info" key={idx}>
             <div className="info-boxes-img-container">
-              <img src={data.image} alt="info_img" />
+              <img src={image} alt="info_img" />
             </div>
 
-            <h2>{data.title}</h2>
-            <p>{data.text}</p>
+            <h2>{title}</h2>
+            <p>{text}</p>
           </div>
         ))}
       </div>
